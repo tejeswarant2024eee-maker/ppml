@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "kernelspec": {
+      "name": "xpython",
+      "display_name": "Python 3.13 (XPython)",
+      "language": "python"
+    },
+    "language_info": {
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "version": "3.13.1"
+    }
+  },
+  "nbformat_minor": 5,
+  "nbformat": 4,
+  "cells": [
+    {
+      "id": "af3ca099-3af5-42e3-8943-35cffc7a0ff3",
+      "cell_type": "code",
+      "source": "import numpy as np\na=np.array([[1,2,4],[5,8,7]])\nprint(a)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "[[1 2 4]\n [5 8 7]]\n"
+        }
+      ],
+      "execution_count": 3
+    },
+    {
+      "id": "6e46f5c3-6842-4700-9e19-fbe1f8ceb07c",
+      "cell_type": "code",
+      "source": "b=np.zeros((2,3))\nprint(b)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "[[0. 0. 0.]\n [0. 0. 0.]]\n"
+        }
+      ],
+      "execution_count": 4
+    },
+    {
+      "id": "f3146f7f-1992-43ed-8718-9e261fb64714",
+      "cell_type": "code",
+      "source": "c=np.full((3,3),6)\nprint(\"array with all 6:\\n\",c)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "array with all 6:\n [[6 6 6]\n [6 6 6]\n [6 6 6]]\n"
+        }
+      ],
+      "execution_count": 7
+    },
+    {
+      "id": "f6d19b65-1716-4d25-8d82-3de624f09ed0",
+      "cell_type": "code",
+      "source": "d=np.random.random((2,2))\nprint(\"random array:\\n\",d)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "random array:\n [[0.21115142 0.83435265]\n [0.76597635 0.64949831]]\n"
+        }
+      ],
+      "execution_count": 8
+    },
+    {
+      "id": "01eb8b47-706c-4c13-96ce-84af9843fd65",
+      "cell_type": "code",
+      "source": "#create a sequemce of integers from 0 to 30 with of 5\nimport numpy as np\ne=np.arange(0,30,5)\nprint(\"nA sequential array with step of 5.\\n\",e)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "nA sequential array with step of 5.\n [ 0  5 10 15 20 25]\n"
+        }
+      ],
+      "execution_count": 10
+    },
+    {
+      "id": "7e7b3495-8f89-4857-b83a-7a5c4eaba6fd",
+      "cell_type": "code",
+      "source": "import numpy as np\narr=np.array([[1,2,3,4],[5,8,4,2],[1,2,0,1]])\nprint(\"Original array:\\n\",arr)\nnew_arr=arr.reshape(4,3)\nprint(\"reshaped arraay (4,3):\\n\",new_arr)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original array:\n [[1 2 3 4]\n [5 8 4 2]\n [1 2 0 1]]\nreshaped arraay (4,3):\n [[1 2 3]\n [4 5 8]\n [4 2 1]\n [2 0 1]]\n"
+        }
+      ],
+      "execution_count": 17
+    },
+    {
+      "id": "0e22631b-bf73-4420-acea-9f86ffd54e5e",
+      "cell_type": "code",
+      "source": "import numpy as np\narr=np.array([[1,2,3,4],[5,8,4,2],[1,2,0,1]])\nflat=arr.flatten()\nprint(\"Original array:\\n\",arr)\nprint(\"Flattened array:\\n\",flat)\n",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original array:\n [[1 2 3 4]\n [5 8 4 2]\n [1 2 0 1]]\nFlattened array:\n [1 2 3 4 5 8 4 2 1 2 0 1]\n"
+        }
+      ],
+      "execution_count": 18
+    },
+    {
+      "id": "dec7e185-eedd-49fd-b69f-04e799123d78",
+      "cell_type": "raw",
+      "source": "",
+      "metadata": {}
+    },
+    {
+      "id": "4912b216-c063-4a55-bd83-8d494fc95eb8",
+      "cell_type": "code",
+      "source": "#flatten array\nflarr=arr.flatten()\nprint(\"in original array:\\n\",arr)\nprint(\"in flattered array :\\n\",flarr)\nimport numpy as np\narr=np.array ([[1,2,3,4],[5,4,3,7],[6,7,0,1]])\nprint(\"in no of dimensions:/n\",arr.ndim)\nprint(\"in shape of array:/n\",arr.shape)\nprint(\"in size of array:/n\",arr.size)\nprint(\"in array type:/n\",arr.dtype)\nnewtype=arr.astype('f')\nprint(\"in converted array type:/n;new type.dtype\")",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "in original array:\n [[1 2 3 4]\n [5 4 3 7]\n [6 7 0 1]]\nin flattered array :\n [1 2 3 4 5 4 3 7 6 7 0 1]\nin no of dimensions:/n 2\nin shape of array:/n (3, 4)\nin size of array:/n 12\nin array type:/n int32\nin converted array type:/n;new type.dtype\n"
+        }
+      ],
+      "execution_count": 23
+    },
+    {
+      "id": "e000a24b-2e4c-4e16-8c27-da7b2b173bbe",
+      "cell_type": "code",
+      "source": "import numpy as np\nP=np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]])\nprint(P[3:0:-1])\nprint(P[2:0:2])\nprint(P[3:3:])\nprint(P[:1,])\nc=P.astype('f')\nprint(c)",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "[[10 11 12]\n [ 7  8  9]\n [ 4  5  6]]\n[]\n[]\n[[1 2 3]]\n[[ 1.  2.  3.]\n [ 4.  5.  6.]\n [ 7.  8.  9.]\n [10. 11. 12.]\n [13. 14. 15.]]\n"
+        }
+      ],
+      "execution_count": 30
+    },
+    {
+      "id": "a2999386-d2cf-4803-b70d-d3a2977ca30b",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    }
+  ]
+}
