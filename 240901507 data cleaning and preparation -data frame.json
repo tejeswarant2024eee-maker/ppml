@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    }
+  },
+  "nbformat_minor": 5,
+  "nbformat": 4,
+  "cells": [
+    {
+      "id": "68492339-0446-43f6-b43a-5b6844efbc69",
+      "cell_type": "code",
+      "source": "import pandas as pd\nimport numpy as np\ndf=pd.DataFrame(np.random.randn(4,3), index=['a','c','d','f'],\ncolumns=['one','two','three'])\ndf = df.reindex(['a','b','c','d','e','f'])\nprint(\"Original Dataframe with NaN\\n\",df)\nprint(\"\\n\")\nprint(\"Dropped DataFrame\\n\",df.dropna())\nprint(\"\\n\")\n",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original Dataframe with NaN\n         one       two     three\na  1.448328  0.034059 -0.470131\nb       NaN       NaN       NaN\nc -0.865031 -1.293707  0.134965\nd  0.003357  0.871129  0.541030\ne       NaN       NaN       NaN\nf -1.014272 -1.030805 -0.861946\n\n\nDropped DataFrame\n         one       two     three\na  1.448328  0.034059 -0.470131\nc -0.865031 -1.293707  0.134965\nd  0.003357  0.871129  0.541030\nf -1.014272 -1.030805 -0.861946\n\n\n"
+        }
+      ],
+      "execution_count": 2
+    },
+    {
+      "id": "7e29d1bc-8b6f-4054-8971-757c519dc0e5",
+      "cell_type": "code",
+      "source": "df=pd.DataFrame(np.random.randn(4,3), index=['a','c','d','f'],\ncolumns=['one','two','three'])\ndf = df.reindex(['a','b','c'])\nprint(\"Original Dataframe:\\n\",df)\nprint(\"\\n\")\nprint(\"NaN replaced with '0':\\n\")\nprint(df.fillna(0))",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original Dataframe:\n         one       two     three\na  0.612476 -0.507163  1.646112\nb       NaN       NaN       NaN\nc  0.920869  0.208163 -0.361148\n\n\nNaN replaced with '0':\n\n        one       two     three\na  0.612476 -0.507163  1.646112\nb  0.000000  0.000000  0.000000\nc  0.920869  0.208163 -0.361148\n"
+        }
+      ],
+      "execution_count": 3
+    },
+    {
+      "id": "309cd02f-3573-40aa-852a-749f7d4c52dc",
+      "cell_type": "code",
+      "source": "df=pd.DataFrame({'one':[10,20,80,40,50],\n'two':[60,70,80,0,10]})\nprint(\"Original Dataframe:\\n\",df)\nprint(\"\\n DataFrame with replaced values:\\n\")\nprint(df.replace({10:5,80:3}))",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original Dataframe:\n    one  two\n0   10   60\n1   20   70\n2   80   80\n3   40    0\n4   50   10\n\n DataFrame with replaced values:\n\n   one  two\n0    5   60\n1   20   70\n2    3    3\n3   40    0\n4   50    5\n"
+        }
+      ],
+      "execution_count": 4
+    },
+    {
+      "id": "e44e1c61-8f25-48bc-bcda-82092b0cd7aa",
+      "cell_type": "code",
+      "source": "df=pd.DataFrame(np.random.randn(4,3), index=['a','c','d','f'],\ncolumns=['one','two','three'])\ndf = df.reindex(['a','b','c','d','e','f'])\nprint(\"Original Dataframe:\\n\",df)\nprint(\"\\nNan-with True fill:\\n\")\nprint(df['one'].isnull())",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original Dataframe:\n         one       two     three\na  1.124080  0.756378  0.446062\nb       NaN       NaN       NaN\nc -0.540664 -0.581161 -0.311749\nd -0.199359 -0.329762 -1.214476\ne       NaN       NaN       NaN\nf  0.783030  0.020415 -0.408221\n\nNan-with True fill:\n\na    False\nb     True\nc    False\nd    False\ne     True\nf    False\nName: one, dtype: bool\n"
+        }
+      ],
+      "execution_count": 5
+    },
+    {
+      "id": "bd9fd16e-5f67-480d-9142-5b7d77409f23",
+      "cell_type": "code",
+      "source": "df=pd.DataFrame(np.random.randn(4,3), index=['a','c','d','f'],\ncolumns=['one','two','three'])\ndf = df.reindex(['a','b','c','d','e','f'])\nprint(\"Original Dataframe:\\n\",df)\nprint(\"\\nNaN - Filled with Background values:\\n\")\nprint(df.fillna(method='bfill'))\n",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "Original Dataframe:\n         one       two     three\na -0.470063  1.644988 -0.798071\nb       NaN       NaN       NaN\nc  1.535478 -1.736058 -1.407525\nd -0.431900  0.100278 -0.052204\ne       NaN       NaN       NaN\nf -0.323220  0.485707  1.650724\n\nNaN - Filled with Background values:\n\n"
+        },
+        {
+          "name": "stderr",
+          "output_type": "stream",
+          "text": "<ipython-input-6-1690b812a04d>:6: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.\n  print(df.fillna(method='bfill'))\n"
+        },
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": "        one       two     three\na -0.470063  1.644988 -0.798071\nb  1.535478 -1.736058 -1.407525\nc  1.535478 -1.736058 -1.407525\nd -0.431900  0.100278 -0.052204\ne -0.323220  0.485707  1.650724\nf -0.323220  0.485707  1.650724\n"
+        }
+      ],
+      "execution_count": 6
+    },
+    {
+      "id": "f7909c27-c030-401b-8d0a-45bafe82bda6",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    }
+  ]
+}
